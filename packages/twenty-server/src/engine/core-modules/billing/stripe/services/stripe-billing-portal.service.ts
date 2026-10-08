@@ -30,7 +30,7 @@ export class StripeBillingPortalService {
     stripeCustomerId: string,
     returnUrl?: string,
   ): Promise<Stripe.BillingPortal.Session> {
-    return await this.stripe.billingPortal.sessions.create({
+    return await this.stripe.billingPortal.sessions.create.confirm({
       customer: stripeCustomerId,
       return_url:
         returnUrl ?? this.domainServerConfigService.getBaseUrl().toString(),
